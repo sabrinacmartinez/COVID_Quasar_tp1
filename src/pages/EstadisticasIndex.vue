@@ -21,18 +21,18 @@
 
         <q-tab-panels v-model="tab" animated>
           <q-tab-panel name="Pacientes Contagiados">
-            <div class="text-h6">Pacientes Contagiados</div>
-            <contadorDeContagiados />
+            <div class="text-h6">Estadísticas</div>
+            <Estadisticas />
           </q-tab-panel>
 
           <q-tab-panel name="Pacientes Recuperados">
-            <div class="text-h6">Pacientes Recuperados</div>
-            <contadorDeRecuperados />
+            <div class="text-h6">Estadísticas</div>
+             <Estadisticas />
           </q-tab-panel>
 
             <q-tab-panel name="Pacientes Fallecidos">
-            <div class="text-h6">Pacientes Fallecidos</div>
-            <contadorDeFallecidos />
+            <div class="text-h6">Estadísticas</div>
+             <Estadisticas />
           </q-tab-panel>
 
         </q-tab-panels>
@@ -43,17 +43,15 @@
 <script>
 
 import Estadisticas from '../components/Estadisticas'
-/* import Paciente from '../components/Paciente'
- */
+
 export default {
   name: 'EstadisticasIdex',
   components: {
-  /*    Paciente,
-    Estadisticas */
+    Estadisticas
   },
   data () {
     return {
-      tab: Estadisticas
+      tab: 'Estadisticas'
     }
   }
 }

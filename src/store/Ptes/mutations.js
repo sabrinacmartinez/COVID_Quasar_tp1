@@ -20,15 +20,15 @@ export default {
     state.listaDePacientesFallecidos[i] = id
   },
   [types.CONTAR_FALLECIDO]: function (state, data) {
-    let i = 0
-    state.contadorDeFallecidos = i++
+    const i = 1
+    state.contadorDeFallecidos += i
   },
   [types.CONTAR_RECUPERADO]: function (state, data) {
-    let i = 0
-    state.contadorDeRecuperados = i++
+    const i = 1
+    state.contadorDeRecuperados += i
   },
   [types.CONTAR_CONTAGIADO]: function (state, data) {
-    let i = 0
-    state.contadorDeContagiados = i++
+    const i = 1
+    state.contadorDeContagiados += i
   }
 }

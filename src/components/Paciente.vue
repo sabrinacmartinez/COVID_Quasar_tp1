@@ -78,17 +78,17 @@
     </div>
   </div>
 
-      <q-btn label="Agregar Registro" type="submit" color="primary" @click="small = true" />
-      <q-btn label="Resetear Registro" type="reset" color="primary" flat class="q-ml-sm" />
+      <q-btn label="Agregar Registro" type="submit" color="primary" @click="mnsjPopUp = true" />
+      <q-btn label="Limpiar Registro" type="reset" color="primary" flat class="q-ml-sm" />
 
-      <q-dialog v-model="small">
+      <q-dialog v-model="mnsjPopUp">
       <q-card style="width: 300px">
         <q-card-section>
-          <div class="text-h6">Registro realizado correctamente</div>
+          <div class="text-h6">Registro realizado correctamente.</div>
         </q-card-section>
 
         <q-card-section class="q-pt-none">
-          Puede hacer click en la pantalla o tocar escape para volver.
+          Puede hacer click en la pantalla o presionar la tecla ESCAPE para volver.
         </q-card-section>
 
         <q-card-actions align="right" class="bg-white text-teal">
@@ -102,7 +102,7 @@
 </template>
 <script>
 
-import { AGREGAR_PACIENTE, AGREGAR_RECUPERADO, AGREGAR_FALLECIDO } from '../store/Ptes/types'
+import { AGREGAR_PACIENTE, AGREGAR_RECUPERADO, AGREGAR_FALLECIDO, CONTAR_RECUPERADO, CONTAR_FALLECIDO, CONTAR_CONTAGIADO } from '../store/Ptes/types'
 
 export default {
   name: 'Paciente',
@@ -116,7 +116,7 @@ export default {
       edad: '',
       estado: '',
       fechaDeIngreso: '',
-      small: false
+      mnsjPopUp: false
     }
   },
   props: {
@@ -133,6 +133,9 @@ export default {
       }
       console.log(paciente)
       if (paciente.estado === 'Contagiado') { this.$store.dispatch('Ptes/' + AGREGAR_PACIENTE, paciente) } else if (paciente.estado === 'Recuperado') { this.$store.dispatch('Ptes/' + AGREGAR_RECUPERADO, paciente) } else { this.$store.dispatch('Ptes/' + AGREGAR_FALLECIDO, paciente) }
+      this.contarPacienteRecuperado()
+      this.contarPacienteFallecido()
+      this.contarPacienteContagiado()
     },
     onResetear: function () {
       this.nombre = null
@@ -142,16 +145,18 @@ export default {
       this.estado = null
     },
     contarPacienteRecuperado: function () {
-      let contadorDeRecuperados = 0
-      if (this.estado === 'Recuperado') { return contadorDeRecuperados++ }
+      const contadorDeRecuperados = 0
+      if (this.estado === 'Recuperado') this.$store.dispatch('Ptes/' + CONTAR_RECUPERADO, contadorDeRecuperados)
+      console.log(contadorDeRecuperados)
     },
     contarPacienteFallecido: function () {
-      let contadorDeFallecidos = 0
-      if (this.estado === 'Fallecido') { return contadorDeFallecidos++ }
+      const contadorDeFallecidos = 0
+      if (this.estado === 'Fallecido') this.$store.dispatch('Ptes/' + CONTAR_FALLECIDO, contadorDeFallecidos)
     },
     contarPacienteContagiado: function () {
-      let contadorDeContagiados = 0
-      if (this.estado === 'Contagiado') { return contadorDeContagiados++ }
+      const contadorDeContagiados = 0
+      if (this.estado === 'Contagiado') this.$store.dispatch('Ptes/' + CONTAR_CONTAGIADO, contadorDeContagiados)
+      console.log(contadorDeContagiados)
     },
     optionsFn (date) {
       return date >= '2019/12/01' && date <= '2021/01/01'
