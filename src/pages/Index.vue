@@ -42,45 +42,6 @@
         </q-tab-panels>
       </q-card>
 
-      <!-- <q-card>
-        <q-tab-panels v-model="tab" animated>
-          <q-tab-panel name="Pacientes Contagiados">
-            <div class="text-h6">Pacientes Contagiados</div>
-            <ListadoPtesContagiados />
-          </q-tab-panel>
-
-          <q-tab-panel name="Pacientes Recuperados">
-            <div class="text-h6">Pacientes Recuperados</div>
-            <ListadoPtesRecuperados />
-          </q-tab-panel>
-
-          <q-tab-panel name="Pacientes Fallecidos">
-            <div class="text-h6">Pacientes Fallecidos</div>
-            <ListadoPtesFallecidos />
-          </q-tab-panel>
-
-           <q-tab-panel name="Ingresar Nuevo Registro">
-            <div class="text-h6">Ingresar Nuevo Registro</div>
-            <Paciente />
-          </q-tab-panel>
-        </q-tab-panels> -->
-
-      <!--   <q-separator />
-
-        <q-tabs
-          v-model="tab"
-          dense
-          class="bg-grey-3"
-          align="justify"
-          narrow-indicator
-        >
-          <q-tab name="Pacientes Contagiados" label="Pacientes Contagiados" />
-          <q-tab name="Pacientes Recuperados" label="Pacientes Recuperados" />
-          <q-tab name="Pacientes Fallecidos" label="Pacientes Fallecidos" />
-          <q-tab name="Ingresar Nuevo Registro" label="Ingresar Nuevo Registro" />
-
-        </q-tabs> -->
-      <!-- </q-card> -->
     </div>
   </div>
 </template>

@@ -3,6 +3,10 @@
     <ul>
       <li v-for="pacientes in listaDePacientesRecuperados" :key="pacientes.nombreCompleto">
         {{ pacientes.nombreCompleto }}
+         <q-btn type="a" to="pages/ModificarPaciente" target="_blank" label="MODIFICAR" size="10px" color="primary" />
+         <br>
+          <br>
+      <q-tooltip content-class="bg-accent">Modificar datos del Paciente</q-tooltip>
       </li>
       </ul>
   </div>
