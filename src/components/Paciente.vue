@@ -78,14 +78,27 @@
     </div>
   </div>
 
-      <div>
-        <q-btn label="Agregar Registro" type="submit" color="primary"/>
-        <q-btn label="Resetear Registro" type="reset" color="primary" flat class="q-ml-sm" />
-      </div>
+      <q-btn label="Agregar Registro" type="submit" color="primary" @click="small = true" />
+      <q-btn label="Resetear Registro" type="reset" color="primary" flat class="q-ml-sm" />
+
+      <q-dialog v-model="small">
+      <q-card style="width: 300px">
+        <q-card-section>
+          <div class="text-h6">Registro realizado correctamente</div>
+        </q-card-section>
+
+        <q-card-section class="q-pt-none">
+          Puede hacer click en la pantalla o tocar escape para volver.
+        </q-card-section>
+
+        <q-card-actions align="right" class="bg-white text-teal">
+          <q-btn flat label="OK" v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
+
     </q-form>
-
   </div>
-
 </template>
 <script>
 
@@ -103,8 +116,7 @@ export default {
       edad: '',
       estado: '',
       fechaDeIngreso: '',
-      fechaDeAlta: '', /* quisiera que alta y defunsion se puedan cargar luego de que el pte fue ingresado en primer lugar, tipo cambiar estado del pte/modificarlo */
-      fechaDeDefuncion: '' /* quisiera que alta y defunsion se puedan cargar luego de que el pte fue ingresado en primer lugar, tipo cambiar estado del pte/modificarlo */
+      small: false
     }
   },
   props: {
@@ -129,13 +141,17 @@ export default {
       this.fechaDeIngreso = null
       this.estado = null
     },
-    contarPteRecuperado: function () {
-      let contadorDeAltas = 0
-      if (this.fechaDeAlta != null) { return contadorDeAltas++ }
+    contarPacienteRecuperado: function () {
+      let contadorDeRecuperados = 0
+      if (this.estado === 'Recuperado') { return contadorDeRecuperados++ }
     },
-    contarPteFallecido: function () {
+    contarPacienteFallecido: function () {
       let contadorDeFallecidos = 0
-      if (this.fechaDeDefuncion != null) { return contadorDeFallecidos++ }
+      if (this.estado === 'Fallecido') { return contadorDeFallecidos++ }
+    },
+    contarPacienteContagiado: function () {
+      let contadorDeContagiados = 0
+      if (this.estado === 'Contagiado') { return contadorDeContagiados++ }
     },
     optionsFn (date) {
       return date >= '2019/12/01' && date <= '2021/01/01'

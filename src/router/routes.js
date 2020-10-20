@@ -8,8 +8,8 @@ const routes = [
     ]
   },
   {
-    path: '/pages/ModificarPaciente',
-    component: () => import('pages/ModificarPaciente.vue')
+    path: '/pages/EstadisticasIndex',
+    component: () => import('pages/EstadisticasIndex.vue')
   },
   // Always leave this as last one,
   // but you can also remove it

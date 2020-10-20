@@ -1,6 +1,9 @@
 export default {
   listaDePacientesContagiados: [],
   listaDePacientesRecuperados: [],
-  listaDePacientesFallecidos: []
+  listaDePacientesFallecidos: [],
+  contadorDeContagiados: Number,
+  contadorDeFallecidos: Number,
+  contadorDeRecuperados: Number
 
 }
