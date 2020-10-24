@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pa-md" style="max-width: 350px">
+  <div class="q-pa-md" style="max-width: 350px" >
     <q-list bordered class="rounded-borders" >
       <q-expansion-item
         expand-separator
@@ -10,6 +10,7 @@
         <q-card>
           <q-card-section>
           <q-item-section>
+
           <q-item-label> {{ contadorDeContagiados }}  </q-item-label>
       </q-item-section>
           </q-card-section>
@@ -58,6 +59,13 @@ export default {
       contadorDeRecuperados: Number,
       contadorDeFallecidos: Number,
       contadorDeContagiados: Number
+    }
+  },
+  methods: {
+    sumarContadores: function () {
+      let total = 0
+      total = this.contadorDeRecuperados + this.contadorDeFallecidos + this.contadorDeContagiados
+      return total
     }
   },
   mounted: function () {
