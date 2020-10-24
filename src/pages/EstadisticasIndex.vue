@@ -1,7 +1,8 @@
 <template>
   <div class="q-pa-md">
     <q-toolbar class="bg-primary glossy text-white">
-          </q-toolbar>
+      <h6>Estadísticas</h6>
+      </q-toolbar>
       <q-card>
       <q-tabs
           v-model="tab"
@@ -12,20 +13,20 @@
           align="justify"
           narrow-indicator
         >
-          <q-tab name="Pacientes Contagiados" icon= "healing" label="Contagiados"/>
-          <q-tab name="Pacientes Recuperados" icon= "mood" label="Recuperados"  />
-          <q-tab name="Pacientes Fallecidos" icon= "mood_bad" label="Pacientes Fallecidos" />
+          <q-tab name="Pacientes" icon= "healing" label="Cantidad de pacientes atravesando cada estado."/>
+         <!--  <q-tab name="Pacientes Recuperados" icon= "mood" label="Recuperados"  />
+          <q-tab name="Pacientes Fallecidos" icon= "mood_bad" label="Pacientes Fallecidos" /> -->
         </q-tabs>
 
         <q-separator />
 
         <q-tab-panels v-model="tab" animated>
-          <q-tab-panel name="Pacientes Contagiados">
-            <div class="text-h6">Estadísticas</div>
-            <Estadisticas />
+          <q-tab-panel name="Pacientes">
+            <!-- <div class="centrar">  --><div class="text-h6">Estadísticas</div>
+            <Estadisticas/> <!-- </div> -->
           </q-tab-panel>
 
-          <q-tab-panel name="Pacientes Recuperados">
+<!--           <q-tab-panel name="Pacientes Recuperados">
             <div class="text-h6">Estadísticas</div>
              <Estadisticas />
           </q-tab-panel>
@@ -34,7 +35,7 @@
             <div class="text-h6">Estadísticas</div>
              <Estadisticas />
           </q-tab-panel>
-
+ -->
         </q-tab-panels>
       </q-card>
 
@@ -56,3 +57,12 @@ export default {
   }
 }
 </script>
+
+/* <style>
+
+.centrar {
+  align-content: center;
+}
+
+</style>
+ */

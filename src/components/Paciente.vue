@@ -120,7 +120,10 @@ export default {
     }
   },
   props: {
-    personaRegistrada: Text
+    personaRegistrada: Text,
+    contadorDeRecuperados: Number,
+    contadorDeFallecidos: Number,
+    contadorDeContagiados: Number
   },
   methods: {
     onAgregar: function () {
@@ -147,7 +150,6 @@ export default {
     contarPacienteRecuperado: function () {
       const contadorDeRecuperados = 0
       if (this.estado === 'Recuperado') this.$store.dispatch('Ptes/' + CONTAR_RECUPERADO, contadorDeRecuperados)
-      console.log(contadorDeRecuperados)
     },
     contarPacienteFallecido: function () {
       const contadorDeFallecidos = 0
@@ -156,7 +158,6 @@ export default {
     contarPacienteContagiado: function () {
       const contadorDeContagiados = 0
       if (this.estado === 'Contagiado') this.$store.dispatch('Ptes/' + CONTAR_CONTAGIADO, contadorDeContagiados)
-      console.log(contadorDeContagiados)
     },
     optionsFn (date) {
       return date >= '2019/12/01' && date <= '2021/01/01'

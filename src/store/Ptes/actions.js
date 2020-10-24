@@ -23,7 +23,7 @@ export default {
   },
   [types.CONTAR_FALLECIDO]: function ({ commit, state }, data) {
     console.log(state)
-    commit(types.CONTAR_CONTAGIADO, data)
+    commit(types.CONTAR_FALLECIDO, data)
   },
   [types.CONTAR_RECUPERADO]: function ({ commit, state }, data) {
     console.log(state)

@@ -1,6 +1,6 @@
 <template>
   <div class="q-pa-md" style="max-width: 350px">
-    <q-list bordered class="rounded-borders">
+    <q-list bordered class="rounded-borders" >
       <q-expansion-item
         expand-separator
         icon="healing"
@@ -10,7 +10,7 @@
         <q-card>
           <q-card-section>
           <q-item-section>
-          <q-item-label> {{ recuperados }}  </q-item-label>
+          <q-item-label> {{ contadorDeContagiados }}  </q-item-label>
       </q-item-section>
           </q-card-section>
         </q-card>
@@ -23,9 +23,9 @@
       >
        <q-card>
           <q-card-section>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-            commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-            eveniet doloribus ullam aliquid.
+          <q-item-section>
+          <q-item-label> {{ contadorDeRecuperados }}  </q-item-label>
+      </q-item-section>
           </q-card-section>
         </q-card>
       </q-expansion-item>
@@ -37,9 +37,9 @@
       >
         <q-card>
           <q-card-section>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-            commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-            eveniet doloribus ullam aliquid.
+          <q-item-section>
+          <q-item-label> {{ contadorDeFallecidos }}  </q-item-label>
+      </q-item-section>
           </q-card-section>
         </q-card>
       </q-expansion-item>
@@ -55,9 +55,9 @@ export default {
   },
   data () {
     return {
-      recuperados: this.contadorDeRecuperados,
-      fallecidos: this.contadorDeFallecidos,
-      contagiados: this.contadorDeContagiados
+      contadorDeRecuperados: Number,
+      contadorDeFallecidos: Number,
+      contadorDeContagiados: Number
     }
   },
   mounted: function () {
