@@ -11,11 +11,13 @@ export default {
     const i = 0
     state.listaDePacientesContagiados[i] = id
   }, */
-  [types.AGREGAR_RECUPERADO]: function (state, data) {
-    state.listaDePacientesRecuperados.push(data)
+  [types.AGREGAR_RECUPERADO]: function (state, id) {
+    const i = 0
+    state.listaDePacientesRecuperados[i] = id
   },
-  [types.AGREGAR_FALLECIDO]: function (state, data) {
-    state.listaDePacientesFallecidos.push(data)
+  [types.AGREGAR_FALLECIDO]: function (state, id) {
+    const i = 0
+    state.listaDePacientesFallecidos[i] = id
   },
   [types.CONTAR_FALLECIDO]: function (state, data) {
     const i = 1

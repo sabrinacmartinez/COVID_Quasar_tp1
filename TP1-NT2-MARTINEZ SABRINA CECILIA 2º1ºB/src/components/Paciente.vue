@@ -81,6 +81,21 @@
       <q-btn label="Agregar Registro" type="submit" color="primary" @click="handler()" />
       <q-btn label="Limpiar Registro" type="reset" color="primary" flat class="q-ml-sm" />
 
+      <q-dialog v-mode="this.mensaje">
+      <q-card style="width: 300px">
+        <q-card-section>
+          <div class="text-h6">Registro realizado correctamente.</div>
+        </q-card-section>
+        <q-card-section class="q-pt-none">
+          Puede hacer click en la pantalla o presionar la tecla ESCAPE para volver.
+        </q-card-section>
+
+        <q-card-actions align="right" class="bg-white text-teal">
+          <q-btn flat label="OK" v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
+
     </q-form>
   </div>
 </template>
@@ -104,13 +119,10 @@ export default {
     }
   },
   props: {
+    personaRegistrada: Text,
     contadorDeRecuperados: Number,
     contadorDeFallecidos: Number,
-    contadorDeContagiados: Number,
-    ListadoPtesContagiados: [],
-    ListadoPtesRecuperados: [],
-    ListadoPtesFallecidos: []
-
+    contadorDeContagiados: Number
   },
   methods: {
     onAgregar: function () {
@@ -122,13 +134,10 @@ export default {
         estado: this.estado
       }
       console.log(paciente)
-      if (paciente.estado === 'Contagiado') this.$store.dispatch('Ptes/' + AGREGAR_PACIENTE, paciente)
-      else if (paciente.estado === 'Recuperado') this.$store.dispatch('Ptes/' + AGREGAR_RECUPERADO, paciente)
-      else this.$store.dispatch('Ptes/' + AGREGAR_FALLECIDO, paciente)
+      if (paciente.estado === 'Contagiado') { this.$store.dispatch('Ptes/' + AGREGAR_PACIENTE, paciente) } else if (paciente.estado === 'Recuperado') { this.$store.dispatch('Ptes/' + AGREGAR_RECUPERADO, paciente) } else { this.$store.dispatch('Ptes/' + AGREGAR_FALLECIDO, paciente) }
       this.contarPacienteRecuperado()
       this.contarPacienteFallecido()
       this.contarPacienteContagiado()
-      alert('Registro realizado correctamente.')
     },
     onResetear: function () {
       this.nombre = null
