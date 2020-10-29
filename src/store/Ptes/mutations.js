@@ -18,15 +18,12 @@ export default {
     state.listaDePacientesFallecidos.push(data)
   },
   [types.CONTAR_FALLECIDO]: function (state, data) {
-    const i = 1
-    state.contadorDeFallecidos += i
+    state.contadorDeFallecidos += data
   },
   [types.CONTAR_RECUPERADO]: function (state, data) {
-    const i = 1
-    state.contadorDeRecuperados += i
+    state.contadorDeRecuperados += data
   },
   [types.CONTAR_CONTAGIADO]: function (state, data) {
-    const i = 1
-    state.contadorDeContagiados += i
+    state.contadorDeContagiados += data
   }
 }
