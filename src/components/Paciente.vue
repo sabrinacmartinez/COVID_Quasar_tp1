@@ -81,7 +81,7 @@
 </template>
 <script>
 
-import { AGREGAR_PACIENTE, AGREGAR_RECUPERADO, AGREGAR_FALLECIDO, CONTAR_RECUPERADO, CONTAR_FALLECIDO, CONTAR_CONTAGIADO } from '../store/Ptes/types'
+import { AGREGAR_CONTAGIADO, AGREGAR_RECUPERADO, AGREGAR_FALLECIDO, CONTAR_RECUPERADO, CONTAR_FALLECIDO, CONTAR_CONTAGIADO } from '../store/Ptes/types'
 
 export default {
   name: 'Paciente',
@@ -96,8 +96,7 @@ export default {
         edad: '',
         estado: '',
         fechaDeIngreso: ''
-      },
-      mensaje: this.mensaje
+      }
     }
   },
   props: {
@@ -119,12 +118,16 @@ export default {
         estado: this.paciente.estado
       }
       console.log(paciente)
-      if (paciente.estado === 'Contagiado') this.$store.dispatch('Ptes/' + AGREGAR_PACIENTE, paciente)
-      else if (paciente.estado === 'Recuperado') this.$store.dispatch('Ptes/' + AGREGAR_RECUPERADO, paciente)
-      else this.$store.dispatch('Ptes/' + AGREGAR_FALLECIDO, paciente)
-      this.contarPacienteRecuperado()
-      this.contarPacienteFallecido()
-      this.contarPacienteContagiado()
+      if (paciente.estado === 'Contagiado') {
+        this.$store.dispatch('Ptes/' + AGREGAR_CONTAGIADO, paciente)
+        this.contarPacienteContagiado()
+      } else if (paciente.estado === 'Recuperado') {
+        this.$store.dispatch('Ptes/' + AGREGAR_RECUPERADO, paciente)
+        this.contarPacienteRecuperado()
+      } else {
+        this.$store.dispatch('Ptes/' + AGREGAR_FALLECIDO, paciente)
+        this.contarPacienteFallecido()
+      }
       alert('Registro realizado correctamente.')
     },
     onResetear: function () {
@@ -150,12 +153,12 @@ export default {
       return date >= '2019/12/01' && date <= '2021/01/01'
     },
     handler () {
-      let mensaje = false
+      let datosIngresados = false
       if (this.paciente) {
-        mensaje = true
+        datosIngresados = true
         this.onAgregar()
       }
-      return { mensaje }
+      return { datosIngresados }
     }
   }
 }

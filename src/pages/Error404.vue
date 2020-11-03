@@ -15,7 +15,7 @@
         text-color="blue"
         unelevated
         to="/"
-        label="Go Home"
+        label="Volver a la pantalla principal"
         no-caps
       />
     </div>

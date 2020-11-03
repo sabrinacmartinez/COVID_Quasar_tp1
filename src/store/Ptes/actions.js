@@ -1,18 +1,10 @@
 import * as types from './types'
 
 export default {
-  [types.AGREGAR_PACIENTE]: function ({ commit, state }, data) {
+  [types.AGREGAR_CONTAGIADO]: function ({ commit, state }, data) {
     console.log(state)
-    commit(types.AGREGAR_PACIENTE, data)
+    commit(types.AGREGAR_CONTAGIADO, data)
   },
-  /*   [types.ELIMINAR_PTE]: function ({ commit, state }, data) {
-    console.log(state)
-    commit(types.ELIMINAR_PTE, data)
-  },
-  [types.MODIFICAR_PTE]: function ({ commit, state }, id) {
-    console.log(state)
-    commit(types.MODIFICAR_PTE, id)
-  }, */
   [types.AGREGAR_RECUPERADO]: function ({ commit, state }, data) {
     console.log(state)
     commit(types.AGREGAR_RECUPERADO, data)

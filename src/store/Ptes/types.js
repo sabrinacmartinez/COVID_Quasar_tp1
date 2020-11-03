@@ -1,4 +1,4 @@
-export const AGREGAR_PACIENTE = 'agregarPacienteContagiado'
+export const AGREGAR_CONTAGIADO = 'agregarPacienteContagiado'
 /* export const ELIMINAR_PTE = 'eliminarPte'
 export const MODIFICAR_PTE = 'modificarPte' */
 export const AGREGAR_RECUPERADO = 'agregarPacienteRecuperado'
